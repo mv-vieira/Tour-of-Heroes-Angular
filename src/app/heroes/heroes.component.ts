@@ -8,18 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent {
-
-  hero: Hero = {
-    id:1,
-    name:"Super-Man"
-  };
-
   heroes = HEROES;
   selectedHero?: Hero;
 
-
   public onSelect(hero: Hero): void{
-
     this.selectedHero = hero;
   }
 }
