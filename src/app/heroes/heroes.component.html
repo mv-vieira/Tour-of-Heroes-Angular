@@ -1,11 +1,19 @@
-<h2>My Heroes</h2>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>My Heroes</mat-card-title>
+  </mat-card-header>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-  [class.selected]="hero === selectedHero"
-  (click)="onSelect(hero)">
-    <span>{{ hero.id }}</span> {{ hero.name }}
-  </li>
-</ul>
+  <mat-card-content>
+    <ul class="heroes">
+      <li
+        *ngFor="let hero of heroes"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)"
+      >
+        <span>{{ hero.id }}</span> {{ hero.name }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>
 
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
