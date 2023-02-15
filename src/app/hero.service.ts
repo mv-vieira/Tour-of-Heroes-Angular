@@ -1,4 +1,6 @@
+import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero.model';
 import { HEROES } from './mock-heroes';
@@ -8,10 +10,11 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
-  public getHeroes(): Hero[]{
-    return HEROES;
+  public getHeroes(): Observable<Hero[]> {
+    const heroes = of(HEROES);
+    this.messageService.add('HeroService: fetched heroes');
+    return heroes;
   }
 }
