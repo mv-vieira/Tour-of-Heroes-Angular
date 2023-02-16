@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -15,7 +16,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
@@ -28,7 +29,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { HeroService } from './../hero.service';
 
 import { Hero } from './../hero.model';
 import { Component, OnInit } from '@angular/core';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -12,6 +13,8 @@ import { Component, OnInit } from '@angular/core';
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero;
+  displayedColumns: string[] = ['position', 'name'];
+  dataSource = HEROES;
 
   constructor(private heroService: HeroService,
               private messageService: MessageService) { }
@@ -27,8 +30,12 @@ export class HeroesComponent implements OnInit {
 
   public onSelect(hero: Hero): void {
     this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Hero with id = ${hero.id} 
+    this.messageService.add(`HeroesComponent: Hero with id = ${hero.id}
     and name = ${hero.name}, was been selected.`);
 
   }
 }
+
+
+
+
