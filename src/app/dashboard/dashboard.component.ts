@@ -10,26 +10,26 @@ import { HEROES } from '../mock-heroes';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  
   heroes: Hero[] = [];
   selectedHero?: Hero;
   displayedColumns: string[] = ['position', 'name'];
 
   constructor(private heroService: HeroService, private messageService: MessageService){ }
-  
+
   ngOnInit(): void {
-  this.getHeroes();    
+    this.messageService.clear();
+    this.getHeroes();
   }
-  
+
   getHeroes(): void{
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes.slice(1,5));
   }
 
-  public onSelect(hero: Hero): void {
+  onSelect(hero: Hero): void {
     this.selectedHero = hero;
     this.messageService.add(`DashboardComponent: Hero with id = ${hero.id}
     and name = ${hero.name}, was been selected.`);
-
   }
+
 }
