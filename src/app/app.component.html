@@ -1,18 +1,18 @@
-<mat-toolbar color="primary">
-  <span>{{ title }}</span>
+<mat-toolbar color="primary" class="title">
+  <span routerLink="/heroes">{{ title }}</span>
 
   <span fxFlex></span>
 
   <button mat-icon-button aria-label="Heroes list"
           matTooltip="Heroes"
-          routerLink='/heroes' >
+          routerLink='/heroes'>
 
     <mat-icon>health_and_safety</mat-icon>
   </button>
 
   <button mat-icon-button aria-label="Dashboard"
           matTooltip="Dashboard"
-          routerLink='/dashboard' >
+          routerLink='/dashboard'>
 
     <mat-icon>dashboard</mat-icon>
   </button>

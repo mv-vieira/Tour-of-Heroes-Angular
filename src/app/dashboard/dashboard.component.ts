@@ -11,7 +11,7 @@ import { HEROES } from '../mock-heroes';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  displayedColumns: string[] = ['position', 'name'];
+  displayedColumns: string[] = ['id', 'name'];
 
   constructor(
     private heroService: HeroService,

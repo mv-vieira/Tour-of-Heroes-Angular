@@ -12,8 +12,8 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-  displayedColumns: string[] = ['position', 'name'];
-  dataSource = HEROES;
+  displayedColumns: string[] = ['id', 'name'];
+
 
   constructor(
     private heroService: HeroService,
