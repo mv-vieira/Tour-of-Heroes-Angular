@@ -11,10 +11,12 @@ import { HEROES } from '../mock-heroes';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  selectedHero?: Hero;
   displayedColumns: string[] = ['position', 'name'];
 
-  constructor(private heroService: HeroService, private messageService: MessageService){ }
+  constructor(
+    private heroService: HeroService,
+    private messageService: MessageService,
+    ){ }
 
   ngOnInit(): void {
     this.messageService.clear();
@@ -24,12 +26,6 @@ export class DashboardComponent implements OnInit {
   getHeroes(): void{
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes.slice(1,5));
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`DashboardComponent: Hero with id = ${hero.id}
-    and name = ${hero.name}, was been selected.`);
   }
 
 }
