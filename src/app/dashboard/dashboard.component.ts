@@ -2,7 +2,7 @@ import { MessageService } from './../message.service';
 import { Hero } from './../hero.model';
 import { HeroService } from './../hero.service';
 import { Component, OnInit } from '@angular/core';
-import { HEROES } from '../mock-heroes';
+
 
 @Component({
   selector: 'app-dashboard',

@@ -1,5 +1,7 @@
-mat-row:hover {
-cursor:pointer;
-color:#ffff;
-background-color: #3F51B5;
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  cursor: pointer;
+  background-color: #3F51B5;
+  color: #ffff;
+  transition: 0.2s ease-in;
 }
