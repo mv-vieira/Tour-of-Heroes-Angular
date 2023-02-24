@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from '../material/material.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 const COMPONENTS = [
   ToolbarComponent,
-  MessagesComponent
+  MessagesComponent,
+  PageNotFoundComponent,
 ]
 
 const MODULES = [
