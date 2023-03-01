@@ -14,6 +14,7 @@ import { Hero } from '../../../core/models/hero.model';
 export class HeroDetailComponent implements OnInit{
 
   hero!: Hero;
+  isEditing!: boolean;
 
   constructor(
     private heroService: HeroService,
@@ -26,20 +27,32 @@ export class HeroDetailComponent implements OnInit{
   }
 
   public getHeroByID(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.heroService.getHeroByID(id).subscribe(hero => this.hero = hero);
+    const paramId = this.route.snapshot.paramMap.get('id');
+
+    if(paramId === 'new') {
+      this.isEditing = false;
+      this.hero = { name:'' } as Hero;
+    } else {
+      this.isEditing = true;
+
+      const id = Number(paramId);
+      this.heroService.getHeroByID(id).subscribe(hero => this.hero = hero);
+    }
   }
 
   public goBack(): void {
     this.location.back();
   }
 
-  public save(): void {
-    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
-  }
-
   public isFormValid(): boolean {
     return !!this.hero.name.trim();
   }
 
+  public create(): void {
+    this.heroService.createHero(this.hero).subscribe(() => this.goBack());
+  }
+
+  public update(): void {
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  }
 }

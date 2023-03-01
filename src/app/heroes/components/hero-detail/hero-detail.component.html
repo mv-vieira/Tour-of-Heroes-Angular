@@ -1,9 +1,10 @@
-<div *ngIf="hero">
-  <h1>{{ hero.name | uppercase }} Details</h1>
+
+  <h1>{{ isEditing ? "Update" : "Create" }} Hero</h1>
+
 
   <mat-card class="example-card">
     <mat-card-content fxLayout="column">
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" *ngIf="isEditing">
         <mat-label>ID</mat-label>
         <input matInput disabled [value]="hero.id" />
       </mat-form-field>
@@ -23,13 +24,24 @@
     <mat-card-actions>
       <button
         mat-raised-button
-        [disabled]="!isFormValid()"
         color="primary"
-        (click)="save()"
+        [disabled]="!isFormValid()"
+        *ngIf="!isEditing"
+        (click)="create()"
       >
-        Save
+        Create
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!isFormValid()"
+        *ngIf="isEditing"
+        (click)="update()"
+      >
+        Update
       </button>
       <button mat-raised-button (click)="goBack()">Go Back</button>
     </mat-card-actions>
   </mat-card>
-</div>
+

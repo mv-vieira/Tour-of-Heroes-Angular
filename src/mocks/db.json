@@ -6,7 +6,7 @@
     },
     {
       "id": 2,
-      "name": "Mikaela"
+      "name": "Super-Man"
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
     },
     {
       "id": 7,
-      "name": "Capitão América1"
+      "name": "Capitão América"
     },
     {
       "id": 8,
@@ -34,11 +34,19 @@
     },
     {
       "id": 9,
-      "name": "Hulk1"
+      "name": "Hulk"
     },
     {
       "id": 10,
       "name": "Aquaman"
+    },
+    {
+      "name": "Odin",
+      "id": 11
+    },
+    {
+      "name": "Bebel",
+      "id": 12
     }
   ]
 }
