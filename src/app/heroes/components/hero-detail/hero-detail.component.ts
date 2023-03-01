@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../../../core/models/hero.model';
-import { MessageService } from '../../../core/services/message.service';
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -13,17 +13,15 @@ import { MessageService } from '../../../core/services/message.service';
 })
 export class HeroDetailComponent implements OnInit{
 
-  hero?: Hero;
+  hero!: Hero;
 
   constructor(
     private heroService: HeroService,
-    private messageService: MessageService,
     private location: Location,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-    this.messageService.clear()
     this.getHeroByID();
   }
 
@@ -35,4 +33,13 @@ export class HeroDetailComponent implements OnInit{
   public goBack(): void {
     this.location.back();
   }
+
+  public save(): void {
+    this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  }
+
+  public isFormValid(): boolean {
+    return !!this.hero.name.trim();
+  }
+
 }

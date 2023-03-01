@@ -2,7 +2,7 @@ import { HeroService } from '../../../core/services/hero.service';
 
 import { Hero } from '../../../core/models/hero.model';
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../../../core/services/message.service';
+
 
 @Component({
   selector: 'app-heroes',
@@ -15,11 +15,9 @@ export class HeroesComponent implements OnInit {
 
 
   constructor(
-    private heroService: HeroService,
-    private messageService: MessageService,) { }
+    private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.messageService.clear();
     this.getHeroes();
   }
 

@@ -14,17 +14,13 @@ export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
   displayedColumns: string[] = ['id', 'name'];
 
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService,
-    ){ }
+  constructor(private heroService: HeroService){ }
 
   ngOnInit(): void {
-    this.messageService.clear();
     this.getHeroes();
   }
 
-  getHeroes(): void{
+  getHeroes(): void {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes.slice(1,5));
   }
