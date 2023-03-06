@@ -21,7 +21,6 @@ import { CoreModule } from './core/core.module';
   imports: [
     //@angular
     BrowserModule,
-    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
 

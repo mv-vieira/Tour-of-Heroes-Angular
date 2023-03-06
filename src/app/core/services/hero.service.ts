@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
@@ -6,7 +7,6 @@ import { environment } from './../../../environments/environment';
 import { Hero } from './../models/hero.model';
 import { MessageService } from './message.service';
 
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,11 @@ export class HeroService {
   private heroesUrl = `${environment.baseUrl}/heroes`;
 
 
-
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
   ) { }
+
 
   // GET /heroes
   public getHeroes(): Observable<Hero[]> {
@@ -43,7 +43,6 @@ export class HeroService {
       .pipe(tap((hero) => this.log(`Created ${this.descAttributes(hero)}`)))
   }
 
-
   // Update /hero/id
   public updateHero(hero: Hero): Observable<Hero> {
     return this.http
@@ -51,6 +50,7 @@ export class HeroService {
       .pipe(tap((hero) => this.log(`Updated ${this.descAttributes(hero)}`)));
   }
 
+  // Descrição de Atributos
   private descAttributes(hero: Hero): string {
     return `Hero ID = ${hero.id} and Name = ${hero.name}`
   }
