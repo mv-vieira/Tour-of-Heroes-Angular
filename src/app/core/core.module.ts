@@ -1,15 +1,16 @@
-import { LoadingInterceptor } from './interceptors/loading.interceptor';
-import { LoadingComponent } from './components/loading/loading.component';
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { LoadingComponent } from './components/loading/loading.component';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
-import { MessagesComponent } from './components/messages/messages.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { MaterialModule } from '../material/material.module';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MaterialModule } from '../material/material.module';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 
@@ -17,7 +18,8 @@ const COMPONENTS = [
   ToolbarComponent,
   MessagesComponent,
   PageNotFoundComponent,
-  LoadingComponent
+  LoadingComponent,
+  ConfirmationDialogComponent
 ]
 
 const MODULES = [

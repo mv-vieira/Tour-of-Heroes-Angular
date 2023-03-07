@@ -12,3 +12,19 @@
   color: #ffff;
   transition: 0.2s ease-in;
 }
+
+.mat-column-id {
+  max-width: 60px;
+  border-right: 1px solid currentColor;
+}
+
+.mat-column-actions {
+  border-left: 1px solid currentColor ;
+  max-width: 70px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.mat-column-name {
+  padding-left: 20px;
+}

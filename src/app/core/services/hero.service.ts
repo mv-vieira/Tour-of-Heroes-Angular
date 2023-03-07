@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -32,7 +33,7 @@ export class HeroService {
   // GET /heroes/id
   public getHeroByID(id: number): Observable<Hero> {
     return this.http
-      .get<Hero>(`${this.heroesUrl}/${id}`)
+      .get<Hero>(this.getUrl(id))
       .pipe(tap((hero) => this.log(`fetched ${this.descAttributes(hero)}`)));
   }
 
@@ -43,11 +44,17 @@ export class HeroService {
       .pipe(tap((hero) => this.log(`Created ${this.descAttributes(hero)}`)))
   }
 
-  // Update /hero/id
+  // PUT /hero/id
   public updateHero(hero: Hero): Observable<Hero> {
     return this.http
-      .put<Hero>(`${this.heroesUrl}/${hero.id}`, hero)
+      .put<Hero>(this.getUrl(hero.id), hero)
       .pipe(tap((hero) => this.log(`Updated ${this.descAttributes(hero)}`)));
+  }
+
+  // Delete /hero/id
+  public deleteHero(hero: Hero): Observable<any> {
+    return this.http.delete<any>(this.getUrl(hero.id))
+    .pipe(tap(() => this.log(`Deleted ${this.descAttributes(hero)}`)));
   }
 
   // Descrição de Atributos
@@ -58,6 +65,11 @@ export class HeroService {
   // Log Message
   private log(message: string): void {
     this.messageService.add(`HeroService: ${message}`)
+  }
+
+  // Get Url with ID
+  private getUrl(id: number): string{
+    return `${this.heroesUrl}/${id}`;
   }
 }
 
