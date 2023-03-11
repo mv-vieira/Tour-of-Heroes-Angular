@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 400"
+    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 300"
   },
   "private": true,
   "dependencies": {
