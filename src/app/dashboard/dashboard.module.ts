@@ -1,10 +1,11 @@
-import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from './../shared/shared.module';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
 
@@ -14,7 +15,8 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     FlexLayoutModule,
     MaterialModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

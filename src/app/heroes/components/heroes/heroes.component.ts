@@ -5,6 +5,7 @@ import { HeroService } from '../../../core/services/hero.service';
 import { Hero } from '../../../core/models/hero.model';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,18 +21,19 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  getHeroes(): void {
+  public getHeroes(): void {
     this.heroService.getHeroes().subscribe(
       (heroes) => (this.heroes = heroes));
   }
 
-  delete(hero: Hero): void {
+  public delete(hero: Hero): void {
     const dialogData: DialogData = {
       cancelText: 'Cancel',
       confirmText: 'Delete',
@@ -50,8 +52,10 @@ export class HeroesComponent implements OnInit {
         });
       }
     });
+  }
 
-    
+  public onSelected(hero: Hero): void {
+    this.router.navigate(['/heroes', hero.id]);
   }
 }
 
