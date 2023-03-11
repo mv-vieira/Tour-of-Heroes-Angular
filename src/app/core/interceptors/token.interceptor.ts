@@ -24,8 +24,7 @@ export class TokenInterceptor implements HttpInterceptor {
         Authorization: token
       }
     });
-
-
+    
     return next.handle(request);
   }
 

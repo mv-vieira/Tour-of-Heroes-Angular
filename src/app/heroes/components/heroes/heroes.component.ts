@@ -55,7 +55,7 @@ export class HeroesComponent implements OnInit {
   }
 
   public onSelected(hero: Hero): void {
-    this.router.navigate(['/heroes', hero.id]);
+    this.delete(hero);
   }
 }
 
