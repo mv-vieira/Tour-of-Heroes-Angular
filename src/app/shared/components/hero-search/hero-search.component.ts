@@ -18,7 +18,8 @@ export class HeroSearchComponent implements OnInit {
   @Input() label = '';
 
   private searchTerm = new Subject<string>();
-  @Output() private selected = new EventEmitter<Hero>()
+
+  @Output() private selected = new EventEmitter<Hero>();
 
   constructor(private heroService: HeroService) { }
 

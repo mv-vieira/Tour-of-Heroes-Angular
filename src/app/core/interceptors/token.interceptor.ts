@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         Authorization: token
-      }
+      },
     });
     
     return next.handle(request);
