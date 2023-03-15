@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/heroes', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {
     path: 'dashboard',
     loadChildren: () =>
@@ -15,6 +15,11 @@ const routes: Routes = [
     path: 'heroes',
     loadChildren: () =>
     import('./heroes/heroes.module').then((module) => module.HeroesModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+    import('./auth/auth.module').then((module) => module.AuthModule)
   },
   {
     path: '**',
