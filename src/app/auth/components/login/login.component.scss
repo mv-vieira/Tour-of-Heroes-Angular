@@ -1,0 +1,30 @@
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 72px 0;
+}
+
+mat-card {
+  background-color: #DCDCDC
+}
+
+mat-form-field {
+  width: 100%;
+  min-width: 400px;
+
+}
+
+mat-card-header{
+  margin-bottom: 15px;
+}
+
+mat-card-header , mat-card-actions , mat-card-footer {
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  opacity: 0.6;
+}

@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +25,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
 
     //App
+    AuthModule,
     CoreModule,
     AppRoutingModule,
   ],
