@@ -32,6 +32,15 @@
           <mat-hint>
             CAUTION: Do not reuse of your existing password.
           </mat-hint>
+
+          <mat-error *ngIf="form.controls['password'].hasError('required')">
+            Password is required.
+          </mat-error>
+
+          <mat-error *ngIf="form.controls['password'].hasError('minlength')">
+            Password should cotain at least 10 characters.
+          </mat-error>
+
         </mat-form-field>
       </p>
     </form>

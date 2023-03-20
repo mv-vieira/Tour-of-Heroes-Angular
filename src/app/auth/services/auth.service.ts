@@ -17,13 +17,22 @@ export class AuthService {
 
   public login(credentials: Credentials): void {
     localStorage.setItem('token', credentials.password);
-    this.loggedIn.next(true);
+    this.updateLoggedIn();
     this.router.navigate(['/heroes']);
   }
 
   public logout(): void {
     localStorage.clear();
-    this.loggedIn.next(false);
+    this.updateLoggedIn();
     this.router.navigate(['/login']);
+  }
+
+  public updateLoggedIn(): void {
+    const token = localStorage.getItem('token');
+    if(token) {
+      this.loggedIn.next(true);
+    } else {
+      this.loggedIn.next(false);
+    }
   }
 }
